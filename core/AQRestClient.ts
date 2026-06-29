@@ -1,5 +1,5 @@
 import AQConstant from "./AQConstant";
-import { HttpsProxyAgent } from 'https-proxy-agent';
+import HttpsProxyAgent from 'https-proxy-agent';
 import axios from "axios";
 import { AQUtil } from "./AQUtil";
 
@@ -17,7 +17,7 @@ const AQRestClient = {
     },
     getProxyConfig: function () {
         let protocol = this.BASE_URL.split("://")[0];
-        return new HttpsProxyAgent(`${protocol}://${this.PROXY_HOST}:${this.PROXY_PORT}`);
+        return new HttpsProxyAgent.HttpsProxyAgent(`${protocol}://${this.PROXY_HOST}:${this.PROXY_PORT}`);
     },
     testConnection: async function (apiKey:string, userId:string, jobId:string, runParam:string|undefined, expireTimeInMinutes: number) {
         const jsonObj = AQUtil.getRunParam(jobId, runParam, expireTimeInMinutes);
