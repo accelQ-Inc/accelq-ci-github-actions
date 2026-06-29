@@ -2,7 +2,7 @@ import AQConstant from './core/AQConstant';
 import AQFormValidate from './core/AQFormValidate';
 import AQRestClient from './core/AQRestClient';
 import { AQUtil } from './core/AQUtil';
-import core from "@actions/core";
+import * as core from "@actions/core";
 
 async function testConnection(appURL:string, userName:string, apiKey:string, tenantCode:string, jobId:string, 
     runParam:string, proxyHost:string, proxyPort:string, maxWaitTimeInMins: string) {
