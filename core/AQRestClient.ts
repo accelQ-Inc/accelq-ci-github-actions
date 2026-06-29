@@ -88,9 +88,9 @@ const AQRestClient = {
                 return resJson;
             }
         }catch (e: any){
-            console.log("Error is: " + e.response.data.message);
+            console.log("Error is: " + (e.response?.data?.message || e.message));
             return null;
-        }  
+        }
     },
     setBaseURL: function (baseURL:string, tenantCode:string) {
         this.BASE_URL = baseURL.charAt(baseURL.length - 1) == '/' ? baseURL : (baseURL + '/');
@@ -107,19 +107,22 @@ const AQRestClient = {
         if (this.isProxySet()) {
             proxyConfig = this.getProxyConfig();
         }
-        const res = await axios.request({
-            method: 'GET',
-            httpsAgent: proxyConfig,
-            url: `${this.API_ENDPOINT}/runs/${runPid}`,
-            headers: {
-                "User-Agent": AQConstant.USER_AGENT,
-                "API_KEY": apiKey,
-                "USER_ID": userId,
-                "Content-Type": "application/json"
-            },
-        });
-        const resJson = res.data;
-        return resJson;
+        try {
+            const res = await axios.request({
+                method: 'GET',
+                httpsAgent: proxyConfig,
+                url: `${this.API_ENDPOINT}/runs/${runPid}`,
+                headers: {
+                    "User-Agent": AQConstant.USER_AGENT,
+                    "API_KEY": apiKey,
+                    "USER_ID": userId,
+                    "Content-Type": "application/json"
+                },
+            });
+            return res.data;
+        } catch (e: any) {
+            throw new Error("Failed to fetch job summary: " + (e.response?.data?.message || e.message));
+        }
     }
 };
 

@@ -19,7 +19,7 @@
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@actions/github": "^4.0.0",
-    "axios": "^0.21.1",
+    "axios": "^1.18.1",
     "http": "0.0.1-security",
     "https-proxy-agent": "^3.0.1",
     "i": "^0.3.6"
