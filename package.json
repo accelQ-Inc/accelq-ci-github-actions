@@ -21,7 +21,7 @@
     "@actions/github": "^4.0.0",
     "axios": "^1.18.1",
     "http": "0.0.1-security",
-    "https-proxy-agent": "^3.0.1",
+    "https-proxy-agent": "^9.1.0",
     "i": "^0.3.6"
   },
   "devDependencies": {

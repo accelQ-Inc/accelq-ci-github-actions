@@ -1,5 +1,5 @@
 import AQConstant from "./AQConstant";
-import HttpsProxyAgent from 'https-proxy-agent';
+import { HttpsProxyAgent } from 'https-proxy-agent';
 import axios from "axios";
 import { AQUtil } from "./AQUtil";
 
