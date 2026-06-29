@@ -42,7 +42,7 @@ const AQRestClient = {
                 return "";
             }
             return "";
-        }catch (e){
+        }catch (e: any){
             const res = e.response;
             if (!res || res.status == 404) {
                 return "Connection request failed. Please check the URL and Tenant Code.";
@@ -87,7 +87,7 @@ const AQRestClient = {
             } else {
                 return resJson;
             }
-        }catch (e){
+        }catch (e: any){
             console.log("Error is: " + e.response.data.message);
             return null;
         }  
